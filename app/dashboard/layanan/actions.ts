@@ -188,3 +188,35 @@ export async function getLayananSpmById(id: string) {
 
   return { success: true, data }
 }
+
+export async function getLayananSpms(filters?: { query?: string; bidang?: string }) {
+  const supabase = createClient()
+
+  try {
+    let query = supabase
+      .from('layanan_spm')
+      .select('*, warga:warga_id(id, nama, NIK), kader:kader_id(nama)')
+
+    if (filters?.bidang && filters.bidang !== 'all') {
+      query = query.eq('bidang', filters.bidang)
+    }
+
+    const { data, error } = await query.order('tanggal_layanan', { ascending: false })
+
+    if (error) throw error
+
+    let filteredData = data || []
+    if (filters?.query) {
+      const q = filters.query.toLowerCase()
+      filteredData = filteredData.filter(
+        (item: { warga?: { nama?: string | null; NIK?: string | null } | null }) =>
+          item.warga?.nama?.toLowerCase().includes(q) || item.warga?.NIK?.includes(q)
+      )
+    }
+
+    return { success: true, data: filteredData }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Terjadi kesalahan sistem'
+    return { success: false, error: message }
+  }
+}

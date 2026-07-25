@@ -13,7 +13,7 @@ BEGIN
     coalesce(new.raw_user_meta_data->>'nama', new.email),
     coalesce(new.raw_user_meta_data->>'username', new.email),
     coalesce(
-      (SELECT id FROM public.peran WHERE kode = (new.raw_user_meta_data->>'role')::peran_kode),
+      (SELECT id FROM public.peran WHERE kode::text = new.raw_user_meta_data->>'role'),
       default_role_id
     ),
     coalesce(new.encrypted_password, 'supabase_managed'),
