@@ -1,0 +1,20 @@
+_format_version: '1.1'
+
+services:
+  # 1. PostgREST API routing (Supabase REST compatible)
+  - name: postgrest
+    url: http://api:3000
+    routes:
+      - name: rest-route
+        paths:
+          - /rest/v1
+        strip_path: true
+
+  # 2. MinIO S3-compatible routing (Supabase Storage compatible)
+  - name: minio-storage
+    url: http://storage:9000
+    routes:
+      - name: storage-route
+        paths:
+          - /storage/v1
+        strip_path: true
