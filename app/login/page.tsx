@@ -55,7 +55,10 @@ export default function LoginPage() {
               strokeLinejoin="round"
             >
               {/* Outer shelter / roof representing LKD and 6 SPM */}
-              <path d="M50 10 L90 40 L80 40 L80 85 L20 85 L20 40 L10 40 Z" fill="rgba(16, 185, 129, 0.05)" />
+              <path
+                d="M50 10 L90 40 L80 40 L80 85 L20 85 L20 40 L10 40 Z"
+                fill="rgba(16, 185, 129, 0.05)"
+              />
               {/* Family silhouette */}
               <circle cx="38" cy="50" r="6" fill="currentColor" />
               <path d="M30 75 C30 63, 46 63, 46 75" />
@@ -64,7 +67,14 @@ export default function LoginPage() {
               <circle cx="50" cy="64" r="4" fill="currentColor" />
               <path d="M44 75 C44 70, 56 70, 56 75" />
               {/* 6 SPM Ring */}
-              <circle cx="50" cy="50" r="43" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="1.5" strokeDasharray="4 4" />
+              <circle
+                cx="50"
+                cy="50"
+                r="43"
+                stroke="rgba(16, 185, 129, 0.2)"
+                strokeWidth="1.5"
+                strokeDasharray="4 4"
+              />
             </svg>
           </div>
           <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
@@ -72,9 +82,7 @@ export default function LoginPage() {
               SiPandu
             </span>
           </h1>
-          <p className="mt-2 text-base font-bold text-slate-300">
-            Sinergi Pelayanan & Posyandu
-          </p>
+          <p className="mt-2 text-base font-bold text-slate-300">Sinergi Pelayanan & Posyandu</p>
           <p className="mt-1 text-xs text-slate-400">
             Sistem Informasi LKD Posyandu 6 SPM Terintegrasi
           </p>

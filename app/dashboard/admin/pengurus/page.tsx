@@ -258,7 +258,9 @@ export default function AdminPengurusPage() {
                   <label className="text-sm font-semibold text-slate-300">Jabatan Pengurus *</label>
                   <Select
                     required
-                    value={!jabatanOptions.includes(formData.jabatan) ? 'Anggota' : formData.jabatan}
+                    value={
+                      !jabatanOptions.includes(formData.jabatan) ? 'Anggota' : formData.jabatan
+                    }
                     onChange={(e) => setFormData({ ...formData, jabatan: e.target.value })}
                   >
                     {jabatanOptions.map((j) => (
