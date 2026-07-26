@@ -178,7 +178,7 @@ export async function getLayananSpmById(id: string) {
   const supabase = createClient()
   const { data, error } = await supabase
     .from('layanan_spm')
-    .select('*, warga:warga_id(id, nama, NIK)')
+    .select('*, warga:warga_id(id, nama, nik)')
     .eq('id', id)
     .maybeSingle()
 
@@ -195,7 +195,7 @@ export async function getLayananSpms(filters?: { query?: string; bidang?: string
   try {
     let query = supabase
       .from('layanan_spm')
-      .select('*, warga:warga_id(id, nama, NIK), kader:kader_id(nama)')
+      .select('*, warga:warga_id(id, nama, nik), kader:kader_id(nama)')
 
     if (filters?.bidang && filters.bidang !== 'all') {
       query = query.eq('bidang', filters.bidang)
@@ -209,8 +209,8 @@ export async function getLayananSpms(filters?: { query?: string; bidang?: string
     if (filters?.query) {
       const q = filters.query.toLowerCase()
       filteredData = filteredData.filter(
-        (item: { warga?: { nama?: string | null; NIK?: string | null } | null }) =>
-          item.warga?.nama?.toLowerCase().includes(q) || item.warga?.NIK?.includes(q)
+        (item: { warga?: { nama?: string | null; nik?: string | null } | null }) =>
+          item.warga?.nama?.toLowerCase().includes(q) || item.warga?.nik?.includes(q)
       )
     }
 

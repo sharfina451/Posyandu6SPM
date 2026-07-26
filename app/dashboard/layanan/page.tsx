@@ -17,7 +17,7 @@ interface LayananSpmItem {
   warga: {
     id: string
     nama: string
-    NIK: string
+    nik: string
   } | null
   kader: {
     nama: string
@@ -138,7 +138,7 @@ export default async function LayananPage({ searchParams }: PageProps) {
                           {item.warga?.nama || 'Warga Terhapus'}
                         </Link>
                         <span className="text-[10px] text-slate-500 font-mono">
-                          NIK: {item.warga?.NIK || '-'}
+                          NIK: {item.warga?.nik || '-'}
                         </span>
                       </td>
                       <td className="p-4">
