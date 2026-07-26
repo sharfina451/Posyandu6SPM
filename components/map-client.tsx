@@ -41,7 +41,7 @@ export default function MapClient({ households }: MapClientProps) {
   useEffect(() => {
     // Fix default marker icon issues in Next.js (safe mergeOptions)
     if (typeof window !== 'undefined') {
-      delete (L.Icon.Default.prototype as any)._getIconUrl
+      delete (L.Icon.Default.prototype as L.Icon.Default & { _getIconUrl?: unknown })._getIconUrl
       L.Icon.Default.mergeOptions({
         iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
         iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
