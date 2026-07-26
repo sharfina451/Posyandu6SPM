@@ -22,6 +22,8 @@ import {
   ChevronRight,
   ShieldAlert,
   Calendar,
+  Map,
+  ClipboardList,
 } from 'lucide-react'
 
 interface UserProfile {
@@ -56,6 +58,8 @@ export function DashboardShell({ children, userProfile }: DashboardShellProps) {
     { name: 'Layanan 6 SPM', href: '/dashboard/layanan', icon: FileText },
     { name: 'Kesehatan / ILP', href: '/dashboard/kesehatan', icon: Activity },
     { name: 'Sistem Rujukan / Tiket', href: '/dashboard/tiket', icon: Ticket },
+    { name: 'Peta Spasial', href: '/dashboard/peta', icon: Map },
+    { name: 'Prioritas Kunjungan', href: '/dashboard/prioritas', icon: ClipboardList },
   ]
 
   const adminNavItems = [
