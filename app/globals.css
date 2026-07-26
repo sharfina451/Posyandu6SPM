@@ -92,3 +92,214 @@
     @apply font-sans;
   }
 }
+
+/* =====================================================================
+   LIGHT MODE ACCESSIBILITY OVERRIDES (Solid White Background & Dark Text)
+   ===================================================================== */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.75rem;
+}
+
+body {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* 1. Main Background Overrides */
+.min-h-screen.bg-slate-950,
+.bg-slate-950,
+.bg-slate-900,
+.bg-slate-900\/60,
+.bg-slate-950\/40,
+.bg-slate-950\/20,
+.bg-slate-950\/60,
+.bg-slate-900\/80,
+.bg-slate-900\/50,
+.bg-slate-900\/30,
+.bg-slate-900\/20,
+.bg-slate-850,
+.bg-slate-800,
+.bg-slate-800\/80,
+.bg-slate-800\/50,
+.bg-slate-800\/20,
+aside.bg-slate-900,
+header.bg-slate-900\/60 {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Sidebar Specific Styling for premium separation */
+aside.bg-slate-900,
+.bg-slate-900 {
+  background-color: #f8fafc !important; /* light slate background for sidebar */
+}
+
+/* 2. Card Overrides */
+.card,
+.bg-slate-900\/60,
+.bg-slate-950\/20 {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05) !important;
+}
+
+/* 3. Text Color Overrides to dark slate */
+.text-slate-100,
+.text-white,
+.text-slate-200,
+.text-slate-300,
+h1, h2, h3, h4, h5, h6,
+.font-bold.text-white,
+.font-bold.text-slate-300,
+table th,
+.text-slate-200 {
+  color: #0f172a !important;
+}
+
+.text-slate-400,
+.text-slate-500,
+p.text-slate-400,
+span.text-slate-400,
+label.text-slate-400 {
+  color: #475569 !important;
+}
+
+/* 4. Inputs & Forms Overrides */
+input,
+select,
+textarea,
+.bg-slate-950.border-slate-800,
+.bg-slate-950.border-slate-800\/80 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* 5. Navigation Links & Sidebar items */
+.flex.items-center.justify-between.px-3.py-2.5.rounded-xl.text-sm.font-semibold.text-slate-400 {
+  color: #475569 !important;
+}
+.flex.items-center.justify-between.px-3.py-2.5.rounded-xl.text-sm.font-semibold.text-slate-400:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Active navigation item in light mode */
+.bg-gradient-to-r.from-emerald-500\/10,
+.text-emerald-400 {
+  background-color: #ecfdf5 !important;
+  background-image: none !important;
+  color: #059669 !important;
+  border-color: #a7f3d0 !important;
+}
+
+.text-emerald-400 {
+  color: #059669 !important;
+}
+
+/* Connection indicator background overrides */
+.bg-emerald-500\/15 {
+  background-color: #d1fae5 !important;
+}
+
+/* User profile section inside sidebar */
+.bg-slate-950\/40 {
+  background-color: #f1f5f9 !important;
+}
+.bg-slate-950\/40 .bg-slate-900\/80 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* 6. Border Overrides */
+.border-slate-800,
+.border-slate-850,
+.border-slate-800\/80,
+.border-slate-800\/60,
+.border-slate-800\/50,
+.border-slate-800\/20,
+.border-b.border-slate-800,
+.border-b.border-slate-850,
+thead tr.border-b.border-slate-800,
+tbody tr.border-b.border-slate-850 {
+  border-color: #e2e8f0 !important;
+}
+
+/* 7. Table Header Background */
+.bg-slate-950\/40 {
+  background-color: #f8fafc !important;
+}
+
+/* 8. Buttons */
+.bg-emerald-500 {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+}
+.bg-emerald-500:hover {
+  background-color: #059669 !important;
+}
+button.bg-slate-800 {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+}
+button.bg-slate-800:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* 9. Badges / Tags */
+.bg-rose-500\/10 {
+  background-color: #ffe4e6 !important;
+  color: #be123c !important;
+  border-color: #fecdd3 !important;
+}
+.bg-blue-500\/10 {
+  background-color: #dbeafe !important;
+  color: #1d4ed8 !important;
+  border-color: #bfdbfe !important;
+}
+.bg-teal-500\/10 {
+  background-color: #ccfbf1 !important;
+  color: #0f766e !important;
+  border-color: #99f6e4 !important;
+}
+.bg-amber-500\/10 {
+  background-color: #fef3c7 !important;
+  color: #b45309 !important;
+  border-color: #fde68a !important;
+}
+.bg-purple-500\/10 {
+  background-color: #f3e8ff !important;
+  color: #7e22ce !important;
+  border-color: #e9d5ff !important;
+}
+.bg-orange-500\/10 {
+  background-color: #ffedd5 !important;
+  color: #c2410c !important;
+  border-color: #fed7aa !important;
+}
+

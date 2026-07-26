@@ -130,7 +130,7 @@ BEGIN
   ON CONFLICT (id) DO NOTHING;
 
   -- 8. Insert Ticket Status Histories (tiket_riwayat_status)
-  INSERT INTO public.tiket_riwayat_status (tiket_id, status_dari, status_ke, catatan, dibuat_oleh) VALUES
+  INSERT INTO public.tiket_riwayat_status (tiket_id, status_dari, status_ke, catatan, oleh_id) VALUES
   -- Ticket 1
   (t1_id, NULL, 'didata', 'Tiket dibuat oleh kader posyandu', kader_user_id),
   (t1_id, 'didata', 'verifikasi_kunjungan', 'Kader memverifikasi kondisi balita langsung', kader_user_id),
