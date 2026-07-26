@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { login } from '@/app/auth/actions'
 import { Button } from '@/components/ui/button'
-import { Mail, Lock, Loader2, ShieldCheck } from 'lucide-react'
+import { Mail, Lock, Loader2 } from 'lucide-react'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -44,19 +44,41 @@ export default function LoginPage() {
       <div className="relative w-full max-w-md space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* Header Logo & Title */}
         <div className="flex flex-col items-center text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/20 text-primary border border-primary/30 shadow-lg shadow-primary/10">
-            <ShieldCheck className="h-8 w-8 text-emerald-400" />
+          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-slate-900/80 text-emerald-400 border border-slate-800 shadow-xl shadow-emerald-500/5">
+            <svg
+              className="h-12 w-12 text-emerald-400"
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* Outer shelter / roof representing LKD and 6 SPM */}
+              <path d="M50 10 L90 40 L80 40 L80 85 L20 85 L20 40 L10 40 Z" fill="rgba(16, 185, 129, 0.05)" />
+              {/* Family silhouette */}
+              <circle cx="38" cy="50" r="6" fill="currentColor" />
+              <path d="M30 75 C30 63, 46 63, 46 75" />
+              <circle cx="62" cy="53" r="5.5" fill="currentColor" />
+              <path d="M54 75 C54 65, 70 65, 70 75" />
+              <circle cx="50" cy="64" r="4" fill="currentColor" />
+              <path d="M44 75 C44 70, 56 70, 56 75" />
+              {/* 6 SPM Ring */}
+              <circle cx="50" cy="50" r="43" stroke="rgba(16, 185, 129, 0.2)" strokeWidth="1.5" strokeDasharray="4 4" />
+            </svg>
           </div>
           <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Aplikasi{' '}
             <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
-              6SPM
+              SiPandu
             </span>
           </h1>
-          <p className="mt-2 text-sm text-slate-400">
+          <p className="mt-2 text-base font-bold text-slate-300">
+            Sinergi Pelayanan & Posyandu
+          </p>
+          <p className="mt-1 text-xs text-slate-400">
             Sistem Informasi LKD Posyandu 6 SPM Terintegrasi
           </p>
-          <span className="mt-1.5 rounded-full bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-300 border border-slate-700/50">
+          <span className="mt-2.5 rounded-full bg-slate-800/80 px-3 py-1 text-[11px] font-medium text-slate-300 border border-slate-700/50">
             Lokus Desa Lemahduwur
           </span>
         </div>

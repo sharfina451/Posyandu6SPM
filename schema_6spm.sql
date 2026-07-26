@@ -96,14 +96,17 @@ CREATE TABLE pengguna (
 
 -- 7. Kepengurusan Posyandu (Permendagri 13/2024: Ketua/Sekretaris/Bendahara/6 Ketua Bidang)
 CREATE TABLE pengurus_posyandu (
-  id             uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  posyandu_id    uuid NOT NULL REFERENCES posyandu(id),
-  pengguna_id    uuid REFERENCES pengguna(id),
-  nama           text NOT NULL,
-  jabatan        text NOT NULL,          -- 'Ketua','Sekretaris','Bendahara','Ketua Bidang',...
-  bidang         bidang_spm,             -- diisi bila 'Ketua Bidang'
-  no_sk          text,
-  mulai_menjabat date
+  id               uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  posyandu_id      uuid NOT NULL REFERENCES posyandu(id),
+  pengguna_id      uuid REFERENCES pengguna(id),
+  nama             text NOT NULL,
+  jabatan          text NOT NULL,          -- 'Ketua','Sekretaris','Bendahara','Ketua Bidang',...
+  bidang           bidang_spm,             -- diisi bila 'Ketua Bidang'
+  no_sk            text,
+  mulai_menjabat   date,
+  aktif            boolean NOT NULL DEFAULT true,
+  dibuat_pada      timestamptz NOT NULL DEFAULT now(),
+  diperbarui_pada  timestamptz NOT NULL DEFAULT now()
 );
 
 -- =====================================================================

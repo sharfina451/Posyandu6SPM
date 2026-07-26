@@ -258,7 +258,7 @@ export default function AdminPengurusPage() {
                   <label className="text-sm font-semibold text-slate-300">Jabatan Pengurus *</label>
                   <Select
                     required
-                    value={formData.jabatan}
+                    value={!jabatanOptions.includes(formData.jabatan) ? 'Anggota' : formData.jabatan}
                     onChange={(e) => setFormData({ ...formData, jabatan: e.target.value })}
                   >
                     {jabatanOptions.map((j) => (
@@ -270,14 +270,16 @@ export default function AdminPengurusPage() {
                   </Select>
                 </div>
 
-                {formData.jabatan === 'Anggota' && (
+                {!jabatanOptions.includes(formData.jabatan) && (
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-slate-300">
                       Detail Jabatan Kustom
                     </label>
                     <Input
                       value={formData.jabatan === 'Anggota' ? '' : formData.jabatan}
-                      onChange={(e) => setFormData({ ...formData, jabatan: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, jabatan: e.target.value || 'Anggota' })
+                      }
                       placeholder="Contoh: Kader Pembantu"
                     />
                   </div>

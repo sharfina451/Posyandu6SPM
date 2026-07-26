@@ -29,7 +29,9 @@ describe('validateWorkflowTransition state machine', () => {
     // selesai -> didata by admin
     const res1 = validateWorkflowTransition('selesai', 'didata', 'admin')
     expect(res1.success).toBe(false)
-    expect(res1.error).toContain('tidak dapat diubah lagi')
+    if (!res1.success) {
+      expect(res1.error).toContain('tidak dapat diubah lagi')
+    }
 
     // ditolak -> verifikasi_kunjungan by pemdes
     const res2 = validateWorkflowTransition('ditolak', 'verifikasi_kunjungan', 'pemdes')
@@ -40,7 +42,9 @@ describe('validateWorkflowTransition state machine', () => {
     // didata -> disposisi_opd directly (skipping verifikasi/pengajuan)
     const res1 = validateWorkflowTransition('didata', 'disposisi_opd', 'pemdes', 'Dinas PU')
     expect(res1.success).toBe(false)
-    expect(res1.error).toContain('tidak valid')
+    if (!res1.success) {
+      expect(res1.error).toContain('tidak valid')
+    }
   })
 
   it('blocks unauthorized roles from executing transitions', () => {
@@ -52,17 +56,23 @@ describe('validateWorkflowTransition state machine', () => {
       'Dinas Sosial'
     )
     expect(res1.success).toBe(false)
-    expect(res1.error).toContain('Hanya Pemerintah Desa')
+    if (!res1.success) {
+      expect(res1.error).toContain('Hanya Pemerintah Desa')
+    }
 
     // disposisi_opd -> selesai by kader (only opd/pemdes/admin allowed)
     const res2 = validateWorkflowTransition('disposisi_opd', 'selesai', 'kader')
     expect(res2.success).toBe(false)
-    expect(res2.error).toContain('Hanya OPD atau Pemdes')
+    if (!res2.success) {
+      expect(res2.error).toContain('Hanya OPD atau Pemdes')
+    }
   })
 
   it('requires OPD destination when transitioning to disposisi_opd', () => {
     const res = validateWorkflowTransition('diajukan_pemdes', 'disposisi_opd', 'pemdes', '')
     expect(res.success).toBe(false)
-    expect(res.error).toContain('OPD Tujuan wajib diisi')
+    if (!res.success) {
+      expect(res.error).toContain('OPD Tujuan wajib diisi')
+    }
   })
 })
